@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const { userRouter } = require('./src/routes')
 
 app.use(express.json());
 
@@ -10,9 +11,10 @@ APIRouter.get('/version', function(req, res) {
     return res.json({ version })
 })
 
-
+APIRouter.use('/users', userRouter)
 
 app.use('/api', APIRouter)
+
 
 app.listen(8080, function() {
     console.log('API is running on 8080');
