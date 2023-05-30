@@ -14,7 +14,7 @@ class BaseModel {
         return this.db.query(`SELECT * FROM ${this.table}`);
     }
     
-    getByID() {
+    getByID(id) {
         return this.db.query(`SELECT * FROM ${this.table} WHERE id = ?`, [id]);
     }
 
